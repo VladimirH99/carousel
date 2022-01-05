@@ -68,6 +68,7 @@ body {
 
 .carousel {
   margin: 1em;
+  text-align: center;
 }
 
 .controls, .indicators {
