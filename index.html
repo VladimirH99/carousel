@@ -6,19 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 
 <body>
-    <ul id="slides" class="slides">
-        <li class="slide active">Slide 1</li>
-        <li class="slide">Slide 2</li>
-        <li class="slide">Slide 3</li>
-        <li class="slide">Slide 4</li>
-        <li class="slide">Slide 5</li>
-    </ul>
+    <div id="carousel" class="carousel">
+        <ul id="slides-container" class="slides">
+            <li class="slide active">Slide 1</li>
+            <li class="slide">Slide 2</li>
+            <li class="slide">Slide 3</li>
+            <li class="slide">Slide 4</li>
+            <li class="slide">Slide 5</li>
+        </ul>
+        <div id="controls-container" class="controls">
+            <span class="control control-prev" id="prev-btn"><i class="fas fa-angle-left"></i></span>
+            <span class="control control-pause" id="pause-btn"><i class="fas fa-pause-circle"></i></span>
+            <span class="control control-next" id="next-btn"><i class="fas fa-angle-right"></i></span>
+        </div>
+        <div id="indicators-container" class="indicators">
+            <div class="indicator active" data-slide-to="0"></div>
+            <div class="indicator" data-slide-to="1"></div>
+            <div class="indicator" data-slide-to="2"></div>
+            <div class="indicator" data-slide-to="3"></div>
+            <div class="indicator" data-slide-to="4"></div>
+        </div>
+    </div>
 
-    <script src="main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
