@@ -1,2 +1,2 @@
-const carousel = new Carousel();
-console.log(carousel);
+const carousel = new SwipeCarousel();
+carousel.init();
