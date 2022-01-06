@@ -81,13 +81,23 @@ body {
 
 .control {
   background-color: grey;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0.5em 1em;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  width: 25px;
+  height: 25px;
 }
 
 .indicator {
@@ -103,4 +113,9 @@ body {
 
 .indicator.active {
   background-color: red;
+}
+
+.control-pause > span {
+  position: absolute;
+  opacity: 0;
 }
