@@ -1,103 +1,18 @@
 /*
-essential styles:
-these make the slideshow work
+non-essential styles:
+just for appearance; change whatever you want
 */
 .carousel {
-  margin: 0;
+  margin: 1em;
+  text-align: center;
 }
 
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
-.slides {
-  position: relative;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  background: #000000;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 40px;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
-  opacity: 0;
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.control-pause {
-  top: calc(50% - 20vh);
-  left: calc(50% - 20vh);
-  height: 0;
-  padding: 0;
-  -webkit-transition: opacity 0.25s ease-out;
-  -o-transition: opacity 0.25s ease-out;
-  transition: opacity 0.25s ease-out;
-  opacity: 0;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
+.controls, .indicators {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.control-prev {
-  left: 0;
-  width: 10%;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.control-next {
-  right: 0;
-  width: 10%;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .control {
@@ -106,38 +21,37 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0.5em 1em;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 25px;
   height: 25px;
 }
 
 .indicator {
+  background-color: grey;
+  display: block;
+  padding: 0.5em 1em;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  margin: -40px 7.5px 0;
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  outline: none;
-  background: none;
-  background-clip: padding-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .indicator.active {
   background-color: red;
 }
 
-.control-pause>span {
+.control-pause > span {
   position: absolute;
   opacity: 0;
 }
