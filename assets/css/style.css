@@ -2,25 +2,37 @@
 essential styles:
 these make the slideshow work
 */
+.carousel {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
 .slides {
   position: relative;
-  height: 150px;
-  padding: 0px;
-  margin: 0px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   list-style-type: none;
+  background: #000000;
 }
 
 .slide {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  z-index: -999;
+  padding: 40px;
   -webkit-transition: opacity 1s;
   -o-transition: opacity 1s;
   transition: opacity 1s;
+  opacity: 0;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 .active {
@@ -28,94 +40,96 @@ these make the slideshow work
   z-index: 1;
 }
 
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
-.slide {
-  font-size: 40px;
-  padding: 40px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: #333;
-  color: #fff;
-}
-
-.slide:nth-of-type(1) {
-  background: red;
-}
-
-.slide:nth-of-type(2) {
-  background: orange;
-}
-
-.slide:nth-of-type(3) {
-  background: green;
-}
-
-.slide:nth-of-type(4) {
-  background: blue;
-}
-
-.slide:nth-of-type(5) {
-  background: purple;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-.carousel {
-  margin: 1em;
-  text-align: center;
-}
-
-.controls, .indicators {
+.control-pause {
+  top: calc(50% - 20vh);
+  left: calc(50% - 20vh);
+  height: 0;
+  padding: 0;
+  -webkit-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1em;
-  margin-top: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.control {
-  background-color: grey;
+.control-prev {
+  left: 0;
+  width: 10%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.control-next {
+  right: 0;
+  width: 10%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.indicators {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  width: 25px;
-  height: 25px;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .indicator {
-  background-color: grey;
-  display: block;
-  padding: 0.5em 1em;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  width: 20px;
+  height: 20px;
+  margin: -40px 7.5px 0;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  outline: none;
+  background: none;
+  background-clip: padding-box;
 }
 
-.indicator.active {
-  background-color: red;
-}
-
-.control-pause > span {
-  position: absolute;
-  opacity: 0;
-}
+/*
+non-essential styles:
+just for appearance; change whatever you want
+*/
