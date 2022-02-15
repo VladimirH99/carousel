@@ -1,20 +1,21 @@
-/*
-essential styles:
-these make the slideshow work
-*/
 *{
     box-sizing: border-box;
 }
 body{
     margin: 0;
 }
-
 .carousel {
     text-align: center;
     position: relative;
     overflow: hidden;
+    &__logo{
+        width: 300px;
+        position: absolute;
+        z-index: 2;
+        top: 2%;
+        left: 2%;
+    }
 }
-
 .slides {
     position: relative;
     height: 100vh;
@@ -22,7 +23,6 @@ body{
     margin: 0px;
     list-style-type: none;
 }
-
 .slide {
     position: absolute;
     left: 0px;
@@ -50,7 +50,6 @@ body{
     bottom: 8%;
     gap: 1em;   
 }
-
 .indicator {
     background-color: rgba(153, 153, 153, 0.63);
     display: block;
@@ -78,16 +77,9 @@ body{
         }
         &:nth-of-type(5){
             background-color: red;
-            box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
-        
+            box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);  
     }}
 }
-
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
-
 .controls {
     display: flex;
     gap: 1em;
@@ -107,64 +99,55 @@ just for appearance; change whatever you want
     user-select: none;
     width: 25px;
     height: 25px;
-}
-
-.control-pause > span {
-    position: absolute;
-    opacity: 0;
-}
-.control-pause {
-    color: rgba(255, 255, 255, 0);
-    font-size: 10rem;
-    position: absolute;
-    z-index: 1;
-    bottom: 50%;
-    right: 50%;
-    transform: translate(50%, 50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 1s;
-    &:hover{
-        color: rgba(255, 255, 255, 0.685);
-        text-shadow: 0 0 5px #ffffff;
+    &-pause > span {
+        position: absolute;
+        opacity: 0;
     }
-    
-}
-.control-prev {
-    font-size: 8rem;
-    position: absolute;
-    left: 0;
-    width: 5%;
-    top: 50%;
-    bottom: 50%;
-    transform: translate(-25%, -50%);
-    color: rgba(255, 255, 255, 0.055);
-    transition: 1s;
-    &:hover{
-        color: rgba(255, 255, 255, 0.952);
-        text-shadow: 0 0 15px #ffffff;
+    &-pause {
+        color: rgba(255, 255, 255, 0);
+        font-size: 10rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 1s;
+        &:hover{
+            color: rgba(255, 255, 255, 0.685);
+            text-shadow: 0 0 5px #ffffff;
+        }
     }
-}
-.control-next {
-    font-size: 8rem;
-    position: absolute;
-    right: 0;
-    width: 5%;
-    top: 50%;
-    bottom: 50%;
-    transform: translate(25%, -50%);
-    color: rgba(255, 255, 255, 0.055);
-    transition: 1s;
-    &:hover{
-        color: rgba(255, 255, 255, 0.952);
-        text-shadow: 0 0 15px #ffffff;
+    &-prev {
+        font-size: 8rem;
+        position: absolute;
+        left: 0;
+        width: 5%;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-25%, -50%);
+        color: rgba(255, 255, 255, 0.055);
+        transition: 1s;
+        &:hover{
+            color: rgba(255, 255, 255, 0.952);
+            text-shadow: 0 0 15px #ffffff;
+        }
     }
-}
-.carousel__logo{
-    width: 300px;
-    position: absolute;
-    z-index: 2;
-    top: 2%;
-    left: 2%;
+    &-next {
+        font-size: 8rem;
+        position: absolute;
+        right: 0;
+        width: 5%;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(25%, -50%);
+        color: rgba(255, 255, 255, 0.055);
+        transition: 1s;
+        &:hover{
+            color: rgba(255, 255, 255, 0.952);
+            text-shadow: 0 0 15px #ffffff;
+        }
+    }
 }
