@@ -2,9 +2,22 @@
 essential styles:
 these make the slideshow work
 */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+.carousel {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
 .slides {
     position: relative;
-    height: 150px;
+    height: 100vh;
     padding: 0px;
     margin: 0px;
     list-style-type: none;
@@ -19,11 +32,55 @@ these make the slideshow work
     opacity: 0;
     z-index: -999;
     transition: opacity 1s;
+    padding: 40px;
+    background-position: 50% 50%;
+    background-size: cover;
 }
-
 .active {
     opacity: 1;
     z-index: 1;
+}
+.indicators{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 8%;
+    gap: 1em;   
+}
+
+.indicator {
+    background-color: rgba(153, 153, 153, 0.63);
+    display: block;
+    padding: 0.2em 1.5em;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    transition: 0.5s;
+    &.active {
+        &:nth-of-type(1){
+            background-color: red;
+            box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+        }
+        &:nth-of-type(2){
+            background-color: rgb(17, 0, 255);
+            box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+        }
+        &:nth-of-type(3){
+            background-color: red;
+            box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+        }
+        &:nth-of-type(4){
+            background-color: rgb(17, 0, 255);
+            box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+        }
+        &:nth-of-type(5){
+            background-color: red;
+            box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+        
+    }}
 }
 
 /*
@@ -31,50 +88,17 @@ non-essential styles:
 just for appearance; change whatever you want
 */
 
-.slide {
-    font-size: 40px;
-    padding: 40px;
-    box-sizing: border-box;
-    background: #333;
-    color: #fff;
-}
-
-.slide:nth-of-type(1) {
-    background: red;
-}
-
-.slide:nth-of-type(2) {
-    background: orange;
-}
-
-.slide:nth-of-type(3) {
-    background: green;
-}
-
-.slide:nth-of-type(4) {
-    background: blue;
-}
-
-.slide:nth-of-type(5) {
-    background: purple;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-}
-
-.carousel {
-    margin: 1em;
-    text-align: center;
-}
-.controls, .indicators {
+.controls {
     display: flex;
     gap: 1em;
-    margin-top: 1em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 .control {
-    background-color: grey;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,17 +108,63 @@ body{
     width: 25px;
     height: 25px;
 }
-.indicator {
-    background-color: grey;
-    display: block;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    user-select: none;
-}
-.indicator.active {
-    background-color: red;
-}
+
 .control-pause > span {
     position: absolute;
     opacity: 0;
+}
+.control-pause {
+    color: rgba(255, 255, 255, 0);
+    font-size: 10rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+    &:hover{
+        color: rgba(255, 255, 255, 0.685);
+        text-shadow: 0 0 5px #ffffff;
+    }
+    
+}
+.control-prev {
+    font-size: 8rem;
+    position: absolute;
+    left: 0;
+    width: 5%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-25%, -50%);
+    color: rgba(255, 255, 255, 0.055);
+    transition: 1s;
+    &:hover{
+        color: rgba(255, 255, 255, 0.952);
+        text-shadow: 0 0 15px #ffffff;
+    }
+}
+.control-next {
+    font-size: 8rem;
+    position: absolute;
+    right: 0;
+    width: 5%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(25%, -50%);
+    color: rgba(255, 255, 255, 0.055);
+    transition: 1s;
+    &:hover{
+        color: rgba(255, 255, 255, 0.952);
+        text-shadow: 0 0 15px #ffffff;
+    }
+}
+.carousel__logo{
+    width: 300px;
+    position: absolute;
+    z-index: 2;
+    top: 2%;
+    left: 2%;
 }

@@ -2,9 +2,24 @@
 essential styles:
 these make the slideshow work
 */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.carousel {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
 .slides {
   position: relative;
-  height: 150px;
+  height: 100vh;
   padding: 0px;
   margin: 0px;
   list-style-type: none;
@@ -21,6 +36,9 @@ these make the slideshow work
   -webkit-transition: opacity 1s;
   -o-transition: opacity 1s;
   transition: opacity 1s;
+  padding: 40px;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 .active {
@@ -28,59 +46,79 @@ these make the slideshow work
   z-index: 1;
 }
 
+.indicators {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  bottom: 8%;
+  gap: 1em;
+}
+
+.indicator {
+  background-color: rgba(153, 153, 153, 0.63);
+  display: block;
+  padding: 0.2em 1.5em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 5px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.indicator.active:nth-of-type(1) {
+  background-color: red;
+  -webkit-box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+          box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+}
+.indicator.active:nth-of-type(2) {
+  background-color: #1100ff;
+  -webkit-box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+          box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+}
+.indicator.active:nth-of-type(3) {
+  background-color: red;
+  -webkit-box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+          box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+}
+.indicator.active:nth-of-type(4) {
+  background-color: #1100ff;
+  -webkit-box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+          box-shadow: 0 0 15px 10px rgba(2, 19, 255, 0.836);
+}
+.indicator.active:nth-of-type(5) {
+  background-color: red;
+  -webkit-box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+          box-shadow: 0 0 15px 10px rgba(236, 4, 4, 0.836);
+}
+
 /*
 non-essential styles:
 just for appearance; change whatever you want
 */
-.slide {
-  font-size: 40px;
-  padding: 40px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: #333;
-  color: #fff;
-}
-
-.slide:nth-of-type(1) {
-  background: red;
-}
-
-.slide:nth-of-type(2) {
-  background: orange;
-}
-
-.slide:nth-of-type(3) {
-  background: green;
-}
-
-.slide:nth-of-type(4) {
-  background: blue;
-}
-
-.slide:nth-of-type(5) {
-  background: purple;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-.carousel {
-  margin: 1em;
-  text-align: center;
-}
-
-.controls, .indicators {
+.controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1em;
-  margin-top: 1em;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .control {
-  background-color: grey;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,22 +138,83 @@ body {
   height: 25px;
 }
 
-.indicator {
-  background-color: grey;
-  display: block;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.indicator.active {
-  background-color: red;
-}
-
 .control-pause > span {
   position: absolute;
   opacity: 0;
+}
+
+.control-pause {
+  color: rgba(255, 255, 255, 0);
+  font-size: 10rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, 50%);
+      -ms-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.control-pause:hover {
+  color: rgba(255, 255, 255, 0.685);
+  text-shadow: 0 0 5px #ffffff;
+}
+
+.control-prev {
+  font-size: 8rem;
+  position: absolute;
+  left: 0;
+  width: 5%;
+  top: 50%;
+  bottom: 50%;
+  -webkit-transform: translate(-25%, -50%);
+      -ms-transform: translate(-25%, -50%);
+          transform: translate(-25%, -50%);
+  color: rgba(255, 255, 255, 0.055);
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.control-prev:hover {
+  color: rgba(255, 255, 255, 0.952);
+  text-shadow: 0 0 15px #ffffff;
+}
+
+.control-next {
+  font-size: 8rem;
+  position: absolute;
+  right: 0;
+  width: 5%;
+  top: 50%;
+  bottom: 50%;
+  -webkit-transform: translate(25%, -50%);
+      -ms-transform: translate(25%, -50%);
+          transform: translate(25%, -50%);
+  color: rgba(255, 255, 255, 0.055);
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.control-next:hover {
+  color: rgba(255, 255, 255, 0.952);
+  text-shadow: 0 0 15px #ffffff;
+}
+
+.carousel__logo {
+  width: 300px;
+  position: absolute;
+  z-index: 2;
+  top: 2%;
+  left: 2%;
 }

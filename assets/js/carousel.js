@@ -1,6 +1,6 @@
 class Carousel {
     constructor(p) {
-        const settings = { ...{ containerID: '#carousel', slideID: '.slide', interval: 1000, isPlaying: true }, ...p };
+        const settings = { ...{ containerID: '#carousel', slideID: '.slide', interval: 2000, isPlaying: true }, ...p };
 
         this.container = document.querySelector(settings.containerID);
         this.slides = this.container.querySelectorAll(settings.slideID);
